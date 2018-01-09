@@ -7,6 +7,10 @@ defmodule SupervisionCheatSheet.FirstSupervisor do
     Supervisor.start_link(__MODULE__, arg, name: :first)
   end
 
+  def start_server(args) do
+    Supervisor.start_child(:first, AServer.child_spec(args))
+  end
+
   def init(arg) do
     IO.inspect arg
     Supervisor.init([

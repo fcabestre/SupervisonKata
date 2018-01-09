@@ -5,13 +5,15 @@ defmodule SupervisionCheatSheet.Application do
   alias SupervisionCheatSheet.FirstSupervisor
   alias SupervisionCheatSheet.SecondSupervisor
   alias SupervisionCheatSheet.ThirdSupervisor
+  alias SupervisionCheatSheet.FourthSupervisor
 
   def start(_type, _args) do
 
     children = [
       {FirstSupervisor, [arg1: :first]},
       {SecondSupervisor, [arg1: :second]},
-      {ThirdSupervisor, [arg1: :third]}
+      {ThirdSupervisor, [arg1: :third]},
+      {FourthSupervisor, [arg1: :third]}
     ]
 
     opts = [strategy: :one_for_one, name: :root]
